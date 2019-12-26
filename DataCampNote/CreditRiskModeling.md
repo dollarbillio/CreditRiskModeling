@@ -93,3 +93,13 @@ plt.xlabel("Person Age")
 plt.ylabel("Loan Interest Rate")
 plt.show()
 ```
+---
+### Handle Missing Data
+* Print an array of columns with null values in any of those columns
+```py
+print(cr_loan.columns[cr_loan.isnull().any()])
+```
+* Print top row of a series with nulls
+```py
+print(cr_loan[cr_loan['person_emp_length'].isnull()].head())
+```
