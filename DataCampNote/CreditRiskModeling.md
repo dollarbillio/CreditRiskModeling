@@ -41,4 +41,28 @@ print(pd.crosstab(cr_loan['person_home_ownership'],[cr_loan['loan_status'],cr_lo
 print(pd.crosstab(cr_loan['person_home_ownership'], cr_loan['loan_status'],
                   values=cr_loan['loan_percent_income'], aggfunc='mean'))
 ```
+* Create a box plot of percentage income by loan status
+```py
+# loan_status = XAxis, 0 and 1, loan_percent_income = yAxis
+cr_loan.boxplot(column = ['loan_percent_income'], by = 'loan_status')
+plt.title('Average Percent Income by Loan Status')
+plt.suptitle('')
+plt.show()
+```
+---
+### Detecting Outliers
+```py
+# Use crosstab
+print(pd.crosstab(cr_loan['loan_status'],cr_loan['person_home_ownership'],
+                  values=cr_loan['person_emp_length'], aggfunc='max'))
+```
+* Choose index of toBeDeleted rows
+```py
+# Create an array of indices where employment length is greater than 60
+indices = cr_loan[cr_loan['person_emp_length'] > 60].index
+```
+* Drop rows based on indices
+```py
+# Drop the records from the data based on the indices and create a new dataframe
+cr_loan_new = cr_loan.drop(indices)
 ```
