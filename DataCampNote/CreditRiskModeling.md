@@ -103,3 +103,13 @@ print(cr_loan.columns[cr_loan.isnull().any()])
 ```py
 print(cr_loan[cr_loan['person_emp_length'].isnull()].head())
 ```
+* Replace the null values with the median value for all employment lengths
+```py
+cr_loan['person_emp_length'].fillna((cr_loan['person_emp_length'].median()), inplace=True)
+```
+* Create a histogram of employment length
+```py
+n, bins, patches = plt.hist(cr_loan['person_emp_length'], bins='auto', color='blue')
+plt.xlabel("Person Employment Length")
+plt.show()
+```
