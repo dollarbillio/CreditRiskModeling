@@ -113,3 +113,17 @@ n, bins, patches = plt.hist(cr_loan['person_emp_length'], bins='auto', color='bl
 plt.xlabel("Person Employment Length")
 plt.show()
 ```
+---
+### Removing missing data
+* Print the number of nulls
+```py
+print(cr_loan['loan_int_rate'].isnull().sum())
+```
+* Store the array on indices
+```py
+indices = cr_loan[cr_loan['loan_int_rate'].isnull()].index
+```
+* Save the new data without missing data
+```py
+cr_loan_clean = cr_loan.drop(indices)
+```
