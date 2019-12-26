@@ -66,3 +66,14 @@ indices = cr_loan[cr_loan['person_emp_length'] > 60].index
 # Drop the records from the data based on the indices and create a new dataframe
 cr_loan_new = cr_loan.drop(indices)
 ```
+* 
+```py
+# Create the cross table from earlier and include minimum employment length
+print(pd.crosstab(cr_loan_new['loan_status'],cr_loan_new['person_home_ownership'],
+            values=cr_loan_new['person_emp_length'], aggfunc=['min','max']))
+```       
+                          min                      max                  
+person_home_ownership MORTGAGE OTHER  OWN RENT MORTGAGE OTHER   OWN  RENT
+loan_status                                                              
+0                          0.0   0.0  0.0  0.0     38.0  24.0  31.0  41.0
+1                          0.0   0.0  0.0  0.0     34.0  11.0  17.0  27.0
