@@ -66,14 +66,30 @@ indices = cr_loan[cr_loan['person_emp_length'] > 60].index
 # Drop the records from the data based on the indices and create a new dataframe
 cr_loan_new = cr_loan.drop(indices)
 ```
-* 
+* Create the similar table using min, max
 ```py
 # Create the cross table from earlier and include minimum employment length
 print(pd.crosstab(cr_loan_new['loan_status'],cr_loan_new['person_home_ownership'],
             values=cr_loan_new['person_emp_length'], aggfunc=['min','max']))
-```       
-                          min                      max                  
-person_home_ownership MORTGAGE OTHER  OWN RENT MORTGAGE OTHER   OWN  RENT
-loan_status                                                              
-0                          0.0   0.0  0.0  0.0     38.0  24.0  31.0  41.0
-1                          0.0   0.0  0.0  0.0     34.0  11.0  17.0  27.0
+```
+* Create the scatter plot for age and amount
+```py
+plt.scatter(cr_loan['person_age'], cr_loan['loan_amnt'], c='blue', alpha=0.5)
+plt.xlabel("Person Age")
+plt.ylabel("Loan Amount")
+plt.show()
+```
+* Use Pandas to drop the record from the data frame and create a new one
+```py
+cr_loan_new = cr_loan.drop(cr_loan[cr_loan['person_age'] > 100].index)
+# Create a scatter plot of age and interest rate
+colors = ["blue","red"]
+# Draw scatter plot from 'person_age', 'loan_int_rate' with different color of plot based on different status of 'loan_status'
+plt.scatter(cr_loan_new['person_age'], cr_loan_new['loan_int_rate'], 
+            c = cr_loan_new['loan_status'],
+            cmap = matplotlib.colors.ListedColormap(colors),
+            alpha=0.5)
+plt.xlabel("Person Age")
+plt.ylabel("Loan Interest Rate")
+plt.show()
+```
