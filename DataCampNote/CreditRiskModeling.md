@@ -28,7 +28,7 @@ plt.show()
 ```py
 print(pd.crosstab(cr_loan['loan_intent'], cr_loan['loan_status'], margins = True))
 ```
-* Create a cross table of home ownership, loan status, and grade\
+* Create a cross table of home ownership, loan status, and grade
 * Create a cross table of home ownership grouped by loan_status and loan_grade
 * Two of the columns within cr_loan are grouped within []
 ```py
