@@ -5,3 +5,10 @@ n, bins, patches = plt.hist(x=cr_loan['loan_amnt'], bins='auto', color='blue',al
 plt.xlabel("Loan Amount")
 plt.show()
 ```
+* Plot a scatter plot of income against age
+```py
+plt.scatter(cr_loan['person_income'], cr_loan['person_age'],c='blue', alpha=0.5)
+plt.xlabel('Personal Income')
+plt.ylabel('Person Age')
+plt.show()
+```
