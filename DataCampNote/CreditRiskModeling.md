@@ -1,4 +1,7 @@
 * Check df dataTypes
+```py
+df.dypes
+```
 * Check loan_amount distribution
 ```py
 n, bins, patches = plt.hist(x=cr_loan['loan_amnt'], bins='auto', color='blue',alpha=0.7, rwidth=0.85)
@@ -24,4 +27,8 @@ plt.show()
 * Create a cross table of the loan intent and status
 ```py
 print(pd.crosstab(cr_loan['loan_intent'], cr_loan['loan_status'], margins = True))
+```
+* Create a cross table of home ownership, loan status, and grade
+```py
+print(pd.crosstab(cr_loan['person_home_ownership'],[cr_loan['loan_status'],cr_loan['loan_grade']]))
 ```
