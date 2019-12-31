@@ -114,6 +114,14 @@ plt.xlabel("Person Employment Length")
 plt.show()
 ```
 ---
+### Exploratory Analysis
+```py
+# Show how many unique items in each of all columns
+app_train.select_dtypes('object').apply(pd.Series.nunique, axis = 0)
+```
+
+
+---
 ### Removing missing data
 * Print the number of nulls
 ```py
