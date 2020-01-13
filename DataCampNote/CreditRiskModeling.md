@@ -137,7 +137,8 @@ cr_loan_clean = cr_loan.drop(indices)
 ```
 * isnull(): to find missing value
 * null records can be easily counted by sum()
-* Show how many null in each column in a table format
+---
+* Show how many **null** in each column in a table format
 ```py
 nullColumns = crLoan.columns[crLoan.isnull().any()]
 crLoan[nullColumns].isnull().sum()
