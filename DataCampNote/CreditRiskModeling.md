@@ -143,3 +143,6 @@ cr_loan_clean = cr_loan.drop(indices)
 nullColumns = crLoan.columns[crLoan.isnull().any()]
 crLoan[nullColumns].isnull().sum()
 ```
+---
+* Impute: to infer missing data from the known part of the data
+
